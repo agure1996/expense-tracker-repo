@@ -14,7 +14,6 @@ import org.hibernate.annotations.CascadeType;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name = "category")
 public class Category {
 
     @Id
