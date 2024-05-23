@@ -1,6 +1,8 @@
 package com.example.agure1996.expense.service;
 
 
+import com.example.agure1996.expense.model.Category;
+import com.example.agure1996.expense.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,61 +12,60 @@ import java.util.Optional;
 public class CategoryService {
 
     @Autowired
-//    private CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     /**
-     * Create a new User
+     * Create a new Category
      */
-    public User newUser(User user) {
-        return userRepository.save(user);
+    public Category newCategory(Category category) {
+        return categoryRepository.save(category);
     }
 
     /**
-     * Get all Users
+     * Get all Categories
      */
-    public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
+    public Iterable<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 
 
     /**
-     * Get User by Id
+     * Get Category by Id
      */
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
+    public Optional<Category> getCategoryById(Long id) {
+        return categoryRepository.findById(id);
     }
 
     /**
-     * Update User
+     * Update Category
      */
 
-    public User updateUser(Long id, User userDetails) {
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()) {
-            User existingUser = user.get();
-            existingUser.setName(userDetails.getName());
-            existingUser.setCategory(userDetails.getCategory());
-            existingUser.setEmail(userDetails.getEmail());
-            return userRepository.save(existingUser);
+    public Category updateCategory(Long id, Category categoryDetails) {
+        Optional<Category> category = categoryRepository.findById(id);
+        if (category.isPresent()) {
+            Category existingCategory = category.get();
+            existingCategory.setName(categoryDetails.getName());
+            existingCategory.setUser(categoryDetails.getUser());
+            return categoryRepository.save(existingCategory);
         }
         return null;
     }
 
     /**
-     * Delete All User
+     * Delete All Categories
      */
 
-    public void deleteAllUser() {
+    public void deleteAllCategories() {
 
-        userRepository.deleteAll();
+        categoryRepository.deleteAll();
     }
 
     /**
-     * Delete User
+     * Delete Category
      */
-    public void deleteUser(Long id) {
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()) userRepository.deleteById(id);
+    public void deleteCategory(Long id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        if (category.isPresent()) categoryRepository.deleteById(id);
     }
 
 
