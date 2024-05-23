@@ -1,10 +1,7 @@
 package com.example.agure1996.expense.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,9 +12,11 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Data
+@Table(name = "user")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -26,6 +25,5 @@ public class User {
 
     @OneToMany
     private Set<Category> category;
-
 
 }
