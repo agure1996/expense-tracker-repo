@@ -1,5 +1,7 @@
 package com.example.agure1996.expense.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,15 +13,22 @@ import java.time.Instant;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name = "expense")
 public class Expense {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String description;
 
+
     private Instant expenseDate;
+
+
+    @ManyToOne
+    private Category category;
+
+    @ManyToOne
+    private User user;
 
 }

@@ -12,18 +12,15 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
     private String email;
 
-    @OneToMany
-    private Set<Category> category;
 
 }

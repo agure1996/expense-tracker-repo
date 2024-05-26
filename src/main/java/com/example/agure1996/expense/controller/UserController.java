@@ -2,7 +2,7 @@ package com.example.agure1996.expense.controller;
 
 import com.example.agure1996.expense.model.User;
 import com.example.agure1996.expense.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -12,20 +12,10 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
+
     private UserService userService;
 
 
-    /**
-     * Post - Create new User
-     *
-     * @param user
-     * @return
-     */
-    @PostMapping("/newUser")
-    public User newUser(@RequestBody User user) {
-        return userService.newUser(user);
-    }
 
     /**
      * GET all existing Users
@@ -55,6 +45,18 @@ public class UserController {
      * @param userDetails
      * @return
      */
+
+    /**
+     * Post - Create new User
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping("/newUser")
+    public User newUser(@RequestBody User user) {
+        return userService.newUser(user);
+    }
+
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         return userService.updateUser(id, userDetails);

@@ -11,7 +11,6 @@ import java.util.Optional;
 public class ExpenseService {
 
 
-    @Autowired
     private ExpenseRepository expenseRepository;
 
     /**

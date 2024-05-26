@@ -11,7 +11,6 @@ import java.util.Optional;
 @Service
 public class CategoryService {
 
-    @Autowired
     private CategoryRepository categoryRepository;
 
     /**
@@ -45,7 +44,6 @@ public class CategoryService {
         if (category.isPresent()) {
             Category existingCategory = category.get();
             existingCategory.setName(categoryDetails.getName());
-            existingCategory.setUser(categoryDetails.getUser());
             return categoryRepository.save(existingCategory);
         }
         return null;

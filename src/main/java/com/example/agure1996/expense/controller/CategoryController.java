@@ -12,7 +12,7 @@ import java.util.Optional;
 @RequestMapping("/categories")
 public class CategoryController {
 
-    @Autowired
+
     private CategoryService categoryService;
 
 

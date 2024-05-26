@@ -11,7 +11,7 @@ import java.util.Optional;
 @RequestMapping("/expenses")
 public class ExpenseController {
 
-    @Autowired
+
     private ExpenseService expenseService;
 
 

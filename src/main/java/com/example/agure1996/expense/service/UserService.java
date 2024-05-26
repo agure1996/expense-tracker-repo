@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UserService {
 
 
-    @Autowired
+
     private UserRepository userRepository;
 
     /**
@@ -46,7 +46,6 @@ public class UserService {
         if (user.isPresent()) {
             User existingUser = user.get();
             existingUser.setName(userDetails.getName());
-            existingUser.setCategory(null);
             existingUser.setEmail(userDetails.getEmail());
             return userRepository.save(existingUser);
         }
